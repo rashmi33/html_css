@@ -1,0 +1,21 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: root
+  password:
+  socket: /tmp/mysql.sock
+
+development:
+  <<: *default
+  database: html_css_development
+
+test:
+  <<: *default
+  database: html_css_test
+
+production:
+  <<: *default
+  database: html_css_production
+  username: html_css
+  password: <%= ENV['HTML_CSS_DATABASE_PASSWORD'] %>
